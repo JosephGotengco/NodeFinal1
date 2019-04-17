@@ -44,11 +44,11 @@ app.post('/pictures', async(request, response) => {
     var url = `https://pixabay.com/api/?key=12227711-2b8be503764e201cc3222631d&q=${query}&image_type=photo`;
     var image = await axios.get(url);
     var images = image.data.hits;
-    query_image = images[0]["userImageURL"];
+    query_image = images[0]["largeImageURL"];
     console.log(query_image);
     response.render('pictures.hbs', {
         title: "Gallery",
-        returned_data: query_image
+        returned_image: query_image
     })
 });
 
