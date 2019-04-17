@@ -19,13 +19,14 @@
 </body>
 <script>
     var imgs = "{{images}}".split(',');
-    console.log(imgs)
+    if (imgs.length != 0) {
     var container = document.getElementById('body');
+    for (var i = 1, j = imgs.length; i < j; i++) {
+        var img = document.createElement('img');
+        img.src = imgs[i]; // img[i] refers to the current URL.
+        container.appendChild(img);
+    }
+    }
 
-for (var i = 0, j = imgs.length; i < j; i++) {
-    var img = document.createElement('img');
-    img.src = imgs[i]; // img[i] refers to the current URL.
-    container.appendChild(img);
-}
 </script>
 </html>
