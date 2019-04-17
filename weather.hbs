@@ -9,5 +9,11 @@
 </head>
 <body>
     {{> nav}}
+    <section>
+        <form method="POST" action="/weather">
+            <input name="place" type="text" required>
+            <input type="submit">
+        </form>
+    </section> 
 </body>
 </html>
