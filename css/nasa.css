@@ -35,16 +35,8 @@ a {
     font-family: 'Cute Font', cursive;
 }
 
-body {
-    background-image: url("../images/gallery-bg.jpg");
-    background-position: center;
-    background-position-y: -290px;
-}
-
 img {
-    height: 465px;
-    width: 400px;
-    right: 37%;
-    position: absolute;
+    height: 500px;
+    width: 500px;
     background-color: rgba(99, 110, 114, 0.7);
 }
