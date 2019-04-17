@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Cute+Font|Roboto');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    height: 7vh;
+    width: 100%;
+    background-color: black;
+    display: fixed;
+}
+
+ul {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+}
+
+li {
+    margin: 0 10px;
+    float: right;
+}
+
+li:nth-child(1) {
+    margin-right: 50px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+    font-family: 'Cute Font', cursive;
+}
