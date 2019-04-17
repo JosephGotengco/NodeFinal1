@@ -17,7 +17,7 @@ app.set('views', __dirname);
 
 // Partials
 hbs.registerPartials(__dirname + '/partials');
-
+app.registerHe
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -43,7 +43,7 @@ app.post('/nasa', async(request, response) => {
     var query = request.body["query"];
     var url = `https://images-api.nasa.gov/search?q=${query}`;
     var json = await axios.get(url);
-    var json = json.data.collection.items[4].href
+    var json = json.data.collection.items[0].href
     console.log(json);
     var gallery = await axios.get(json)
     console.log(gallery.data)
@@ -51,27 +51,35 @@ app.post('/nasa', async(request, response) => {
     // console.log(gallery.data)
     response.render('nasa.hbs', {
         title: "Gallery",
-        image1: gallery.data[0],
-        image2: gallery.data[1],
-        image3: gallery.data[2],
-        // image4: gallery.data[3],
-        // image5: gallery.data[4],
-        // image6: gallery.data[5]
+        images: gallery.data
+
     })
 });
 
 app.get('/deck', (request, response) => {
-    // When they make a request to the server (this file!)
     response.render('deck.hbs', {
-        title: "Forecast"
+        title: "Deck"
     });
 });
 
-// app.post('/', (request, response) => {
-//     response.render('index.hbs', {
-//         returned_data: request.body["data"]
-//     })
-// })
+app.post('/deck', async(request, response) => {
+    var num = parseInt(request.body.number);
+    console.log(typeof num)
+    var url = `https://deckofcardsapi.com/api/deck/new/draw/?count=${num}`
+    var deck = await axios.get(url);
+    var deck = deck.data["cards"]
+    var image_array = []
+    for (var i in deck) {
+        console.log(deck[i]);
+        // console.log(deck[i]["image"])
+        image_array.push(deck[i]["image"])
+    }
+    console.log(image_array)
+    response.render('deck.hbs', {
+        title: "Deck",
+        images: image_array
+    })
+})
 
 app.listen(port, () => {
     console.log('Server is up and running');

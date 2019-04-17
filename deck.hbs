@@ -7,13 +7,24 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="css/deck.css">
 </head>
-<body>
+<body id="body">
     {{> nav}}
     <section>
         <form method="POST" action="/deck">
-            <input name="place" type="text" required>
+            <input name="number" type="number" required>
             <input type="submit">
         </form>
-    </section> 
+    </section>
+    
 </body>
+<script>
+    var imgs = "{{images}}".split(',');
+    var container = document.getElementById('body');
+
+for (var i = 0, j = imgs.length; i < j; i++) {
+    var img = document.createElement('img');
+    img.src = imgs[i]; // img[i] refers to the current URL.
+    container.appendChild(img);
+}
+</script>
 </html>
