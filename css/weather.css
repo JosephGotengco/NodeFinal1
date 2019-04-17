@@ -34,3 +34,9 @@ a {
     font-size: 40px;
     font-family: 'Cute Font', cursive;
 }
+
+body {
+    background-image: url("../images/weather-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
