@@ -21,6 +21,7 @@
     var imgs = "{{images}}".split(',');
     if (imgs.length != 0) {
     var container = document.getElementById('body');
+    console.log(imgs)
     for (var i = 1, j = imgs.length; i < j; i++) {
         var img = document.createElement('img');
         img.src = imgs[i]; // img[i] refers to the current URL.
