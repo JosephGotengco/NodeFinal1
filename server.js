@@ -17,7 +17,6 @@ app.set('views', __dirname);
 
 // Partials
 hbs.registerPartials(__dirname + '/partials');
-app.registerHe
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
